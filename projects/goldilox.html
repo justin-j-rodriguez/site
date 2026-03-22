@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project GOLDILOX | Justin Rodriguez</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; background: #fbfbfd; padding: 4rem 10%; line-height: 1.6; color: #1d1d1f; }
+        .report-card { background: white; padding: 4rem; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.04); max-width: 900px; margin: 0 auto; }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .subtitle { color: #0071e3; font-weight: 600; font-size: 1.2rem; margin-bottom: 2rem; }
+        .back-link { text-decoration: none; color: #0071e3; font-weight: 600; display: inline-block; margin-bottom: 2rem; transition: opacity 0.2s; }
+        .back-link:hover { opacity: 0.7; }
+        h3 { font-size: 1.4rem; border-bottom: 2px solid #f2f2f2; padding-bottom: 0.5rem; margin-top: 2.5rem; }
+        ul { padding-left: 1.5rem; color: #424245; }
+        li { margin-bottom: 0.8rem; }
+        .highlight-box { background: #f5f5f7; padding: 1.5rem; border-radius: 12px; margin: 2rem 0; border-left: 4px solid #0071e3; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html#projects" class="back-link">← Back to Portfolio</a>
+    
+    <div class="report-card">
+        <h1>Project GOLDILOX</h1>
+        <div class="subtitle">Global Orbit Liquid Distribution & In-situ LOX Exchange</div>
+
+        <div class="highlight-box">
+            <strong>The Goldilocks Principle:</strong> In-orbit Liquid Oxygen (LOX) transfer is highly sensitive. If the environment is slightly too warm, it boils away. If acceleration is too low, it floats away from the pump. This project identifies the "just right" parameters for a successful Starship refueling mission.
+        </div>
+
+        <h3>1. Mission Objective</h3>
+        <p>Transitioned from a conceptual understanding of Starship in-orbit refueling to a functional numerical model within a highly constrained one-week sprint. The goal was to prove the capacity to rapidly assimilate space-specific physics and apply mechanical engineering fundamentals to current NASA/SpaceX mission architectures.</p>
+
+        <h3>2. Technical Methodology</h3>
+        <ul>
+            <li><strong>Boil-Off Prediction:</strong> Developed a Python-based thermal tool to calculate solar heat absorption against insulation performance to predict propellant loss over time.</li>
+            <li><strong>Microgravity Fuel Settlement:</strong> Analyzed fluid behavior to determine the precise continuous thrust required to prevent the propellant from forming a "blob" in zero-g, ensuring the LOX remains settled at the pump inlet for transfer.</li>
+            <li><strong>High-Fidelity Data:</strong> Integrated a specialized coding library to extract real-world thermodynamic properties of oxygen at cryogenic space temperatures, elevating the model's accuracy beyond baseline estimates.</li>
+        </ul>
+
+        <h3>3. Engineering Impact</h3>
+        <p>This numerical model provides actionable parameters for cryogenic fluid management in microgravity. It serves as a direct proof-of-concept for adapting core thermodynamics and fluid mechanics to complex orbital logistics.</p>
+    </div>
+
+</body>
+</html>
