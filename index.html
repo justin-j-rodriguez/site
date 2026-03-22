@@ -3,89 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin Rodriguez | M.S. Aerospace Engineering</title>
+    <title>Justin Rodriguez | Aerospace Systems</title>
     <style>
-        :root { --primary: #0071e3; --text: #1d1d1f; --bg: #f5f5f7; --card: #ffffff; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; }
+        :root { --primary: #0071e3; --text: #1d1d1f; --bg: #fbfbfd; --card: #ffffff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Helvetica Neue", sans-serif; margin: 0; background: var(--bg); color: var(--text); scroll-behavior: smooth; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 10%; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid #d2d2d7; position: fixed; width: 80%; top: 0; z-index: 1000; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 500; }
+        main { max-width: 1000px; margin: 7rem auto; padding: 0 2rem; }
+        .hero { display: flex; gap: 2rem; margin-bottom: 4rem; }
+        .card { background: var(--card); border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,0.04); padding: 2.5rem; border: 1px solid #f2f2f2; }
+        .hero-bio { flex: 2; }
+        .hero-img { flex: 1; overflow: hidden; padding: 0; display: flex; align-items: center; justify-content: center; }
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 3rem; margin: 0; letter-spacing: -0.03em; }
+        .subtitle { font-size: 1.4rem; color: var(--primary); font-weight: 600; margin: 0.5rem 0 1.5rem 0; }
         
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background: var(--card); border-bottom: 1px solid #d2d2d7; }
-        .logo { font-weight: 700; font-size: 1.2rem; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; }
-        .social-icon { width: 20px; height: 20px; fill: var(--text); transition: fill 0.2s; }
-        .social-icon:hover { fill: var(--primary); }
-
-        /* Hero Section */
-        main { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
-        .hero { display: flex; gap: 2rem; align-items: stretch; margin-bottom: 2rem; }
-        .hero-card { background: var(--card); padding: 3rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .bio-card { flex: 2; }
-        .photo-card { flex: 1; display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 0; }
-        .photo-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
-
-        h1 { font-size: 3rem; margin: 0; letter-spacing: -0.02em; }
-        .subtitle { font-size: 1.5rem; color: var(--primary); font-weight: 600; margin: 0.5rem 0 1.5rem 0; }
-        p { color: #6e6e73; font-size: 1.1rem; max-width: 600px; }
-
-        /* Grid */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .section-card { background: var(--card); padding: 2rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        h2 { font-size: 1.5rem; margin-top: 0; border-bottom: 1px solid #d2d2d7; padding-bottom: 0.5rem; }
-        ul { padding-left: 1.2rem; color: #6e6e73; }
-        li { margin-bottom: 0.8rem; }
-        .project-link { color: var(--primary); font-weight: 600; text-decoration: none; }
+        /* Project Horizontal Cards */
+        .project-card { display: flex; margin-bottom: 2rem; overflow: hidden; padding: 0; }
+        .p-img { flex: 1; background: #f2f2f2; min-height: 250px; }
+        .p-img img { width: 100%; height: 100%; object-fit: cover; }
+        .p-content { flex: 1.5; padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .p-tag { font-size: 0.7rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .p-title { font-size: 1.6rem; margin: 0 0 1rem 0; letter-spacing: -0.01em; }
+        .p-btn { align-self: flex-start; padding: 8px 20px; background: #e8f0fe; color: var(--primary); text-decoration: none; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
         
-        @media (max-width: 768px) { .hero, .grid { flex-direction: column; grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .hero, .project-card { flex-direction: column; } nav { width: 100%; padding: 1rem 5%; } }
     </style>
 </head>
 <body>
-
-<nav>
-    <div class="logo">JR</div>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="https://www.linkedin.com/in/justin-j-rodriguez" target="_blank">
-            <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        </a>
-    </div>
-</nav>
-
-<main>
-    <section class="hero">
-        <div class="hero-card bio-card">
-            <h1>Justin Rodriguez</h1>
-            <div class="subtitle">Aerospace Systems Engineer</div>
-            <p>M.S. Aerospace Engineering candidate specializing in Space Systems Design. Focused on the intersection of complex thermal analysis, GNC, and high-fidelity structural modeling.</p>
-        </div>
-        <div class="hero-card photo-card">
-            <img src="profile.jpg" alt="Justin Rodriguez">
-        </div>
-    </section>
-
-    <div class="grid">
-        <section class="section-card" id="about">
-            <h2>About</h2>
-            <p>I am driven by the fundamental physics of space exploration. My work focuses on translating theoretical models into functional engineering solutions. I prioritize data-driven design and first-principles thinking in every project.</p>
+    <nav>
+        <div style="font-weight:700">JR</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="https://www.linkedin.com/in/justin-j-rodriguez" target="_blank">LinkedIn</a></li>
+        </ul>
+    </nav>
+    <main id="home">
+        <section class="hero">
+            <div class="card hero-bio">
+                <h1>Justin Rodriguez</h1>
+                <div class="subtitle">M.S. Aerospace Engineering</div>
+                <p style="color:#6e6e73">Specializing in Space Systems Design and GNC at the University of Central Florida. I focus on bridging complex theoretical models with functional hardware implementations.</p>
+            </div>
+            <div class="card hero-img"><img src="profile.jpg"></div>
         </section>
 
-        <section class="section-card" id="projects">
-            <h2>Key Projects</h2>
-            <ul>
-                <li>
-                    <strong>Active Thermal Control Loop</strong><br>
-                    <span style="font-size: 0.9rem;">Python-based simulation for satellite thermal regulation.</span><br>
-                    <a href="#" class="project-link">View Live Demo →</a>
-                </li>
-                <li>
-                    <strong>Telescoping Boom Arm</strong><br>
-                    <span style="font-size: 0.9rem;">Structural FEA Lead for Altec Industries.</span>
-                </li>
-            </ul>
-        </section>
-    </div>
-</main>
-
+        <h2 id="projects" style="margin-bottom:2rem; font-size:2rem">Featured Projects</h2>
+        
+        <div class="card project-card">
+            <div class="p-img"><img src="thermal-thumb.jpg"></div>
+            <div class="p-content">
+                <div class="p-tag">Thermodynamics & Control</div>
+                <h3 class="p-title">Active Thermal Control Loop</h3>
+                <p style="color:#6e6e73; font-size:0.95rem">Satellite thermal regulation simulation utilizing a lumped-parameter model and PID control logic.</p>
+                <a href="thermal-loop.html" class="p-btn">View More →</a>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
